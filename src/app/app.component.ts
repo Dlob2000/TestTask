@@ -22,7 +22,9 @@ export class AppComponent implements OnInit {
 
   typeOfReport = ['Calibraton', 'Measuring', 'Using'];
 
-  title = 'TestTask';
+  title = 'A-001234';
+  image = '../assets/scale.png';
+  description = 'Аналитические весы OHAUS Adventurer АХ324 (B715976163)'
 
   ngOnInit(): void {
     this.form = new FormGroup({

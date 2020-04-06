@@ -1,1 +1,47 @@
-<p>report works!</p>
+<div class="report-wrapper" xmlns="http://www.w3.org/1999/html">
+  <div class="report">
+    <h2>
+      Calibration report
+    </h2>
+
+    <div class="table">
+      <div class="table-header table-row">
+        <div class="table-header-element column-1"><span>Data</span></div>
+        <div class="table-header-element column-2"><span>Used buffer solutions</span></div>
+        <div class="table-header-element column-3"><span>Slope, % <br>Norm 95-105</span></div>
+        <div class="table-header-element column-4"><span>Offset, mV <br>Norm ±(0-20)</span></div>
+        <div class="table-header-element column-5"><span>User</span></div>
+      </div>
+      <div  *ngFor="let item of data; let idx = index">
+      <div class="table-row">
+        <div class="table-element column-1"><span>{{item.date}}</span></div>
+        <div class="table-element column-2">
+          <p *ngFor="let p of item.data">{{p}}</p>
+        </div>
+        <div class="table-element column-3">
+          <div class="value">{{item.slope}}</div>
+          <span
+            [class.active]="(item.slope <= 105) && (item.slope >= 95)"
+            [class.inactive]="(item.slope > 105) || (item.slope < 95)"
+          ></span>
+        </div>
+        <div class="table-element column-4">
+          <div class="value">{{item.offset}}</div>
+          <span
+            [class.active]="(item.offset <= 20) && (item.offset >= -20)"
+            [class.inactive]="(item.offset > 20) || (item.offset < -20)"
+
+          ></span>
+        </div>
+        <div class="table-element column-5">
+          <p>
+            {{item.user}}
+          </p>
+        </div>
+
+      </div>
+      <hr *ngIf="idx !== 3">
+      </div>
+    </div>
+  </div>
+</div>

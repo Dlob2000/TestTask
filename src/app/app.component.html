@@ -1,4 +1,3 @@
-
 <div class="container">
 
   <div class="wrapper">
@@ -14,11 +13,35 @@
     <div></div>
     <div class="second-item">
       <div class="logo-name">
-
+        <img src="../assets/scale.png" height="40" width="40"/>
+        <span>
+          Аналитические весы OHAUS Adventurer АХ324 (B715976163)
+        </span>
       </div>
+      <form class="data-form" [formGroup]="form">
+        <select formControlName="period">
+          <option *ngFor="let item of timeOptions" [value]="item.value">{{item.name}}</option>
+        </select>
+        <div class="radio-block">
+          <div *ngFor="let type of typeOfReport" class="radio-form">
+            <input type="radio" [id]="type"
+                   formControlName="type"
+                   class="custom-control-input" [value]="type">
+            <label [for]="type">{{type}}</label>
+          </div>
+        </div>
+        <div class="button-form">
+          <button type="submit"><p>Generate report</p></button>
+        </div>
+      </form>
+
     </div>
-    <div>4</div>
-    <div>lor</div>
+    <div class="third-item">
+      <app-inventory-description></app-inventory-description>
+    </div>
+    <div class="last-item">
+      <app-report></app-report>
+    </div>
   </div>
 
 </div>

@@ -2,5 +2,13 @@
 @import url("../src/assets/fonts/font/stylesheet.css");
 
 body {
-  background: white;
+    background: white;
+}
+
+span, p, label {
+    font-family: TT Norms;
+}
+
+input {
+    padding-left: 1%;
 }

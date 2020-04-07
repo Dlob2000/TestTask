@@ -1,47 +1,47 @@
 <div class="container">
 
-  <div class="wrapper">
-    <div class="first-item">
-      <div>
-        <p class="label">Enter inventory number, guid or bims id</p>
-      </div>
-      <div class="form">
-        <input type="text" [(ngModel)]="title">
-        <button><p>Search</p></button>
-      </div>
-    </div>
-    <div></div>
-    <div class="second-item">
-      <div class="logo-name">
-        <img [src]="image" height="40" width="40"/>
-        <span>
+    <div class="wrapper">
+        <div class="first-item">
+            <div>
+                <p class="label">Enter inventory number, guid or bims id</p>
+            </div>
+            <div class="form">
+                <input type="text" [(ngModel)]="title">
+                <button><p>Search</p></button>
+            </div>
+        </div>
+        <div></div>
+        <div class="second-item">
+            <div class="logo-name">
+                <img [src]="image" height="40" width="40"/>
+                <span>
           {{description}}
         </span>
-      </div>
-      <form class="data-form" [formGroup]="form">
-        <select formControlName="period">
-          <option *ngFor="let item of timeOptions" [value]="item.value">{{item.name}}</option>
-        </select>
-        <div class="radio-block">
-          <div *ngFor="let type of typeOfReport" class="radio-form">
-            <input type="radio" [id]="type"
-                   formControlName="type"
-                   class="custom-control-input" [value]="type">
-            <label [for]="type">{{type}}</label>
-          </div>
-        </div>
-        <div class="button-form">
-          <button type="submit"><p>Generate report</p></button>
-        </div>
-      </form>
+            </div>
+            <form class="data-form" [formGroup]="form">
+                <select formControlName="period">
+                    <option *ngFor="let item of timeOptions" [value]="item.value">{{item.name}}</option>
+                </select>
+                <div class="radio-block">
+                    <div *ngFor="let type of typeOfReport" class="radio-form">
+                        <input type="radio" [id]="type"
+                               formControlName="type"
+                               class="custom-control-input" [value]="type">
+                        <label [for]="type">{{type}}</label>
+                    </div>
+                </div>
+                <div class="button-form">
+                    <button type="submit"><p>Generate report</p></button>
+                </div>
+            </form>
 
+        </div>
+        <div class="third-item">
+            <app-inventory-description></app-inventory-description>
+        </div>
+        <div class="last-item">
+            <app-report></app-report>
+        </div>
     </div>
-    <div class="third-item">
-      <app-inventory-description></app-inventory-description>
-    </div>
-    <div class="last-item">
-      <app-report></app-report>
-    </div>
-  </div>
 
 </div>

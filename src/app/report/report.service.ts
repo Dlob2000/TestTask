@@ -1,28 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ReportService} from './report.service';
+import {Injectable} from '@angular/core';
 
-export interface Report {
-    date: string;
-    data: string[];
-    slope: number;
-    offset: number;
-    user: string;
-}
-
-@Component({
-    selector: 'app-report',
-    templateUrl: './report.component.html',
-    styleUrls: ['./report.component.scss']
+@Injectable({
+    providedIn: 'root'
 })
-export class ReportComponent implements OnInit {
+export class ReportService {
 
-    loading = false;
-
-
-    @Input()
-    type = '';
-
-    data: Report[] = [
+    data = [
         {
             date: '04.10.19 10:23',
             data: [
@@ -77,20 +60,19 @@ export class ReportComponent implements OnInit {
         }
     ];
 
-    constructor(private reportService: ReportService) {
+    constructor() {
     }
 
-    generateReport(data) {
-        this.loading = true;
-        this.type = data.type;
-        this.reportService.getData(data.period, data.type).then((result) => {
-            this.data = result.data;
-            this.loading = false;
-        });
-    }
-
-    ngOnInit(): void {
-
+    getData(date, type): Promise<any> {
+        return new Promise<any>(
+            resolve => {
+                setTimeout(() => {
+                    resolve({
+                        data: this.data
+                    });
+                }, 2000);
+            }
+        );
     }
 
 }

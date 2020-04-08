@@ -1,17 +1,22 @@
-div {
+div.card {
+    height: calc(100% - 40px);
     padding: 20px 18.38px;
 
-    p {
-        margin: 8px 0;
-        font-family: TT Norms;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        color: #8C8C8C;
+    .card-content {
+        height: 100%;
+    }
+}
 
-        span {
-            color: #353535;
-        }
+p {
+    margin: 8px 0;
+    font-family: TT Norms;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8C8C8C;
+
+    span {
+        color: #353535;
     }
 }

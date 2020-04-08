@@ -7,18 +7,21 @@
             </div>
             <div class="form">
                 <input type="text" [(ngModel)]="title">
-                <button><p>Search</p></button>
+                <button (click)="ngOnInit()"><p>Search</p></button>
             </div>
         </div>
         <div></div>
         <div class="second-item">
-            <div class="logo-name">
-                <img [src]="image" height="40" width="40"/>
-                <span>
-          {{description}}
+
+            <div *ngIf="!loading; else load">
+                <div class="logo-name">
+                    <img [src]="image" height="40" width="40"/>
+                    <span>
+          {{name}}
         </span>
+                </div>
             </div>
-            <form class="data-form" [formGroup]="form">
+            <form class="data-form" [formGroup]="form" (ngSubmit)="report.generateReport(form.value)">
                 <select formControlName="period">
                     <option *ngFor="let item of timeOptions" [value]="item.value">{{item.name}}</option>
                 </select>
@@ -35,12 +38,18 @@
                 </div>
             </form>
 
+
+            <ng-template #load>
+                <div style="height: 80px">
+                    <app-loading></app-loading>
+                </div>
+            </ng-template>
         </div>
         <div class="third-item">
-            <app-inventory-description></app-inventory-description>
+            <app-inventory-description [data]="data" [loading]="loading"></app-inventory-description>
         </div>
         <div class="last-item">
-            <app-report></app-report>
+            <app-report #report type='{{currentType}}'></app-report>
         </div>
     </div>
 

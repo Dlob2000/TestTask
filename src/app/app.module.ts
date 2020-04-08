@@ -5,12 +5,14 @@ import {AppComponent} from './app.component';
 import {ReportComponent} from './report/report.component';
 import {InventoryDescriptionComponent} from './inventory-description/inventory-description.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ReportComponent,
-        InventoryDescriptionComponent
+        InventoryDescriptionComponent,
+        LoadingComponent
     ],
     imports: [
         BrowserModule,
